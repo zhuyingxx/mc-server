@@ -6,7 +6,7 @@
    3. qqJoin        点"一键加群"跳转的链接（QQ 群分享链接；没有就留空）
    4. kuaishou      快手主页链接（现在填的是"竹影c"的搜索页，换成你自己的主页最好）
    5. kuaishouId    快手号（页面上显示，方便粉丝直接搜）
-   6. packDownload  整合包下载链接（现在指向站点里的本地文件，上传时一起传）
+   6. packDownload  整合包下载链接（本地预览用相对路径，线上用 GitHub 发布附件地址）
    =================================================================== */
 
 window.SITE = {
@@ -16,5 +16,7 @@ window.SITE = {
   qqJoin:       "",
   kuaishou:     "https://www.kuaishou.com/search/video?searchKey=%E7%AB%B9%E5%BD%B1c",
   kuaishouId:   "zhuyingc1314",
-  packDownload: "assets/download/AC26.3-client.zip"
+  packDownload: (location.hostname === "zhuyingxx.github.io"
+    ? "https://github.com/zhuyingxx/mc-server/releases/download/v1.0.0/AC26.3-client.zip"
+    : "assets/download/AC26.3-client.zip")
 };
