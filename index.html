@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>竹影c 的 MC 服务器 · 26.3 养老生电 · 灯牌进服</title>
+<meta name="description" content="竹影c 的 Minecraft 服务器 · 26.3 养老生电：永久不删档、无氪金，灯牌进服，电脑和手机都能玩。附整合包下载与手机进服教程。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.className += " js";</script>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home">
+      <span class="brand-cube" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M16 2 30 9.5v13L16 30 2 22.5v-13z" fill="#d9b76a"/><path d="M16 2 30 9.5 16 17 2 9.5z" fill="#f2dfb0"/><path d="M16 17v13L2 22.5v-13z" fill="#a9812f"/><path d="M16 17v13l14-7.5v-13z" fill="#c39a4a"/></svg>
+      </span>
+      <span class="brand-text"><b>竹影<em>c</em></b><small>MINECRAFT SERVER</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="active">首页</a>
+      <a href="#features">服务器特色</a>
+      <a href="#review">进服流程</a>
+      <a href="#tutorial">教程</a>
+      <a href="#client">客户端</a>
+
+      <a href="#contact">联系</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-ghost btn-sm" data-cfg-href="kuaishou" href="#" target="_blank" rel="noopener">快手主页</a>
+      <a class="btn btn-primary btn-sm" href="#contact">加入 QQ 群</a>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 首屏 ============ -->
+<section class="hero" id="home">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <canvas class="fx-canvas" id="fxCanvas" aria-hidden="true"></canvas>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="pill"><i class="dot"></i> 26.3 养老生电 · 灯牌进服</span>
+
+      <h1>开局一把镐<br>剩下交给 <em>红石</em></h1>
+
+      <p class="lead">
+        这是竹影c 的 Minecraft 服务器：不爆肝、不氪金、不删档。
+        慢慢造你的农场、刷铁机、全自动流水线，
+        想肝的时候肝，想躺的时候躺。
+      </p>
+
+      <div class="ip-box" id="ipBox">
+        <div class="ip-label">服务器地址</div>
+        <code id="serverIp" data-cfg="ip">进群获取</code>
+        <button class="copy-btn" data-copy="ip" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+          <span>复制</span>
+        </button>
+        <a class="ip-pending-link" id="ipPending" href="#review" hidden>怎么进群 →</a>
+      </div>
+
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#review">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg>
+          看进服流程
+        </a>
+        <a class="btn btn-ghost" href="#tutorial">手机也能玩</a>
+      </div>
+
+      <ul class="hero-stats">
+        <li><b>26.3</b><span>游戏版本</span></li>
+        <li><b>24h</b><span>全天在线</span></li>
+        <li><b>永久</b><span>不删档</span></li>
+        <li><b class="live"><i class="dot"></i>2 个群</b><span>在线交流</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="av-stage">
+        <div class="holo-city" aria-hidden="true"></div>
+        <div class="tech-grid" aria-hidden="true"></div>
+        <div class="tech-ring" aria-hidden="true"></div>
+        <div class="tech-ring r2" aria-hidden="true"></div>
+        <div class="holo-dome" aria-hidden="true"></div>
+        <div class="av-turn" id="avTurn">
+          <div class="av skin">
+            <div class="box leg l"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box leg r"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box torso"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box head"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box arm l"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box arm r"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="box goldbox"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="av-shadow"></div>
+
+        <div class="orbit" aria-hidden="true">
+          <div class="ob box grass" style="--a:0deg;--y:-14px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box tnt" style="--a:60deg;--y:16px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box dia" style="--a:120deg;--y:-26px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box red" style="--a:180deg;--y:8px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box gold" style="--a:240deg;--y:-20px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box emerald" style="--a:300deg;--y:22px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="orbit o2" aria-hidden="true">
+          <div class="ob box grass small" style="--a:30deg;--y:-70px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box dia small" style="--a:150deg;--y:-40px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ob box gold small" style="--a:270deg;--y:-96px"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="tech-scan" aria-hidden="true"></div>
+        <div class="float-tag tag-a">zhuyingc1314</div>
+        <div class="float-tag tag-b">26.3 · 养老生电</div>
+
+        
+        </div>
+
+        <div class="tech-hud" aria-hidden="true">
+          <div class="hud-line hud-1"><b>Y 64</b><span>/ OVERWORLD</span></div>
+          <div class="hud-line hud-2"><b>TPS 20.0</b><span>/ STABLE</span></div>
+          <div class="hud-line hud-3"><b>CHUNK 42</b><span>/ LOADED</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>★ 生电不必爆肝，想肝就肝，想躺就躺</span>
+      <span>★ 地图永久不删档，你盖的东西一直在</span>
+      <span>★ 直播间一毛钱卡灯牌，升到三级就能进服</span>
+      <span>★ 直播同服，随时可能被空降</span>
+      <span>★ 生电不必爆肝，想肝就肝，想躺就躺</span>
+      <span>★ 地图永久不删档，你盖的东西一直在</span>
+      <span>★ 直播间一毛钱卡灯牌，升到三级就能进服</span>
+      <span>★ 直播同服，随时可能被空降</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 服务器特色 ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i></i>01 / FEATURES</span>
+      <h2>这个服，适合<em>长期待着</em></h2>
+      <p>不做快餐服，不卖数值，不删档。想认真造点东西的人，这里能待得住。</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3 21 8v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+        </div>
+        <h3>生电自由</h3>
+        <p>红石、刷铁机、全自动农场、村民交易所，想造什么造什么。不限制红石频率，不删你的机器，只处理卡服的那种。</p>
+        <span class="tag">想造什么造什么</span>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M4 20h16M9 20v-6h6v6"/></svg>
+        </div>
+        <h3>永久不删档</h3>
+        <p>地图长期保留，你花三个月盖的城堡，三个月后还在原地。定期备份，不会因为一次事故全没了。</p>
+        <span class="tag">不重置</span>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3v18M5 7l7-4 7 4M5 7v10l7 4 7-4V7"/></svg>
+        </div>
+        <h3>公平，无氪金</h3>
+        <p>不出售装备、权限、飞行、经验。所有人从木镐开始，氪金在这里买不到任何优势。</p>
+        <span class="tag">零充值</span>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>反作弊常开</h3>
+        <p>服务端反作弊常驻，管理在线巡查。开挂、开透、偷东西，查到直接封禁，不接受申诉洗白。</p>
+        <span class="tag">零容忍</span>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4M10 9l4 2-4 2z"/></svg>
+        </div>
+        <h3>直播同服</h3>
+        <p>竹影的直播就在这个服里。你可能在造机器时被空降，也可能收到一箱礼物——或者一整箱 TNT。</p>
+        <span class="tag">节目效果</span>
+      </article>
+
+      <article class="card feature reveal">
+        <div class="ico">
+          <svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0z"/><path d="M18 5h2a2 2 0 0 1 0 4h-2M6 5H4a2 2 0 0 0 0 4h2"/></svg>
+        </div>
+        <h3>养老节奏</h3>
+        <p>没有每日打卡，没有强制活动。忙的时候一个月不上，回来你的东西还在，没人动。</p>
+        <span class="tag">不催上线</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 进服流程 ============ -->
+<section class="section section-alt" id="review">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i></i>02 / JOIN</span>
+      <h2>进服要<em>灯牌</em>，四步搞定</h2>
+      <p>服务器不公开 IP，走灯牌是为了挡掉外挂和熊孩子，不是为难你。流程走完，群公告里就有地址。</p>
+    </div>
+
+    <div class="review-layout">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">01</div>
+          <div class="step-body">
+            <h3>直播间卡个灯牌</h3>
+            <p>来竹影的直播间，刷 <b class="hl">1 毛钱</b> 的礼物就能卡上灯牌，成为自己人。</p>
+            <a class="inline-link" data-cfg-href="kuaishou" href="#" target="_blank" rel="noopener">去快手找直播间 →</a>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="num">02</div>
+          <div class="step-body">
+            <h3>每天做任务，升到三级灯牌</h3>
+            <p>灯牌要升到 <b class="hl">3 级</b> 才能进服。每天在直播间做任务、看直播就能升，不用花钱。</p>
+            <p class="mini">急着进服也别去找代刷，那是骗钱的，被查到直接拉黑。</p>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="num">03</div>
+          <div class="step-body">
+            <h3>私信竹影，发四张截图</h3>
+            <p>灯牌到 3 级后，快手私信竹影，把下面这 <b class="hl">4 张截图</b> 一起发过去：快手主页、游戏 ID、IP 归属地、灯牌等级。</p>
+            <p class="mini">截图要能看清，糊成一片的会被打回来重发。</p>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="num">04</div>
+          <div class="step-body">
+            <h3>拿到群码，进群看公告</h3>
+            <p>核对没问题，竹影会把 <b class="hl">群二维码</b> 发给你。进群后看群公告，服务器地址、客户端都在里面。</p>
+            <a class="inline-link" href="#client">先下客户端 →</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side-card reveal">
+        <h3>私信要带的四张截图</h3>
+        <ul class="check-list">
+          <li><b>快手主页</b> —— 能看到你的快手号和灯牌</li>
+          <li><b>游戏 ID</b> —— 启动器或游戏内截图，ID 要清楚</li>
+          <li><b>IP 归属地</b> —— 用来确认你不是批量小号</li>
+          <li><b>灯牌等级</b> —— 显示已到 3 级的那一页</li>
+        </ul>
+
+        <div class="warn-card">
+          <strong>服务器禁止</strong>
+          <ul class="warn-list">
+            <li>开挂、开透视、用任何作弊客户端</li>
+            <li>捣乱、恶意破坏别人的建筑</li>
+            <li>偷东西、翻别人箱子</li>
+            <li>泄露服务器 IP 和群内信息</li>
+          </ul>
+          <p>以上任意一条，直接封禁 + 移出群，不解释。</p>
+        </div>
+
+        <div class="spec-row">
+          <div><span>服务器版本</span><b>26.3</b></div>
+          <div><span>玩法</span><b>养老生电</b></div>
+          <div><span>进服方式</span><b class="hl">灯牌 3 级</b></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 教程 ============ -->
+<section class="section" id="tutorial">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i></i>03 / GUIDE</span>
+      <h2>从零开始，<em>手把手</em>教你进服</h2>
+      <p>没装过客户端也没关系，照着点一遍就行。卡住了直接在群里问，别自己硬折腾。</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="t1" role="tab">① 装启动器</button>
+      <button class="tab" data-tab="t2" role="tab">② 导入整合包</button>
+      <button class="tab" data-tab="t3" role="tab">③ 进入服务器</button>
+      <button class="tab" data-tab="t4" role="tab">④ 手机进服</button>
+      <button class="tab" data-tab="t5" role="tab">⑤ 常见问题</button>
+    </div>
+
+    <div class="tab-panels">
+      <div class="panel active" id="t1">
+        <ol class="step-list">
+          <li>
+            <h4>下载 PCL2 启动器</h4>
+            <p>去 PCL2 官网下载最新版，是单个 <code>.exe</code> 文件，免安装。别从乱七八糟的下载站下，容易带东西。</p>
+          </li>
+          <li>
+            <h4>放到 D 盘</h4>
+            <p>新建一个文件夹，比如 <code>D:\MC\PCL</code>，把启动器放进去。放 C 盘桌面有时候会因为权限写不进文件。</p>
+          </li>
+          <li>
+            <h4>让它自己装 Java</h4>
+            <p>新版 PCL 会自动匹配并下载对应的 Java，不用自己折腾。群文件里也放了打包好的 Java，装不上就用那个。</p>
+          </li>
+          <li>
+            <h4>把下载源改成镜像</h4>
+            <p>设置 → 启动器 → 下载源 → 选「镜像下载」。国内直连官方源经常卡住不动。</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="panel" id="t2">
+        <ol class="step-list">
+          <li>
+            <h4>进群下载客户端</h4>
+            <p>下载 <code>AC26.3基础整合包.zip</code>（上面「整合包」那块就能直接下）。<b class="hl">不要解压</b>，PCL 要的就是压缩包。</p>
+          </li>
+          <li>
+            <h4>导入</h4>
+            <p>打开 PCL2 → 左上「版本列表」→ 右上角「导入整合包」→ 选中刚才那个 zip，等它自己解压完。</p>
+          </li>
+          <li>
+            <h4>确认版本出现</h4>
+            <p>列表里出现「AC26.3基础整合包」就说明成功了。点它右边的齿轮进设置。</p>
+          </li>
+          <li>
+            <h4>分配内存</h4>
+            <p>内存给 <b class="hl">4096–6144 MB</b>。生电机器多、区块加载大，给少了会卡，但也别把内存条拉满。</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="panel" id="t3">
+        <ol class="step-list">
+          <li>
+            <h4>启动游戏</h4>
+            <p>选好「AC26.3基础整合包」，点启动。第一次进会慢一点，属于正常现象。</p>
+          </li>
+          <li>
+            <h4>添加服务器</h4>
+            <p>主菜单 →「多人游戏」→「添加服务器」。名称随便写，地址填 <code data-cfg="ip">进群获取</code>，注意别多打空格。</p>
+          </li>
+          <li>
+            <h4>进服先看告示牌</h4>
+            <p>出生点有规则告示牌，写着哪些能做、哪些会被 ban。读完再动手，别一进去就挖别人家门口。</p>
+          </li>
+          <li>
+            <h4>连不上？</h4>
+            <p>先看群公告是不是在维护或换周目，再看地址有没有多打空格。都没问题就在群里 @ 管理。</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="panel" id="t4">
+        <div class="mobile-note">
+          <b>先说结论</b>
+          <p>安卓手机可以玩，装完和电脑上是同一个服务器、同一个存档；苹果手机基本别折腾，下面有说明。</p>
+        </div>
+
+        <ol class="step-list">
+          <li>
+            <h4>下载 FCL 启动器（安卓）</h4>
+            <p>FCL（Fold Craft Launcher）是手机上跑 Java 版的启动器，免费、中文。群文件里有安装包，也可以应用商店搜「FCL」。装的时候手机可能提示「未知来源」，允许即可。</p>
+          </li>
+          <li>
+            <h4>让它装 Java</h4>
+            <p>第一次打开 FCL 会提示安装 Java 运行环境，点「安装」，等它自动下完（大概 200 MB，用 WiFi）。这一步不装后面启动不了。</p>
+          </li>
+          <li>
+            <h4>导入整合包</h4>
+            <p>把 <code>AC26.3基础整合包.zip</code> 存到手机里 → FCL 主界面「整合包」→「导入」→ 选中它。手机解压慢，等 3–5 分钟别退出。</p>
+          </li>
+          <li>
+            <h4>内存给 2–3 GB</h4>
+            <p>在整合包设置里把内存调到 <b class="hl">2048–3072 MB</b>。给多了安卓会直接杀掉游戏，反而进不去。</p>
+          </li>
+          <li>
+            <h4>进服务器</h4>
+            <p>启动后进「多人游戏」→「添加服务器」，地址填群公告里那个。第一次加载地形会卡十几秒，正常。</p>
+          </li>
+          <li>
+            <h4>卡的话这样调</h4>
+            <p>视频设置里渲染距离拉到 <b class="hl">4–6</b>，关掉光影，关掉「平滑光照」和「实体阴影」。虚拟按键不顺手可以在 FCL 里换布局。</p>
+          </li>
+        </ol>
+
+        <div class="two-col-notes">
+          <div class="note-card ok">
+            <b>适合拿手机干什么</b>
+            <span>挂机、收菜、看家、盯熔炉</span>
+            <span>临时上线跟人说句话</span>
+            <span>躺床上逛自己家</span>
+          </div>
+          <div class="note-card no">
+            <b>别指望手机干这些</b>
+            <span>在红石机器堆里建大工程</span>
+            <span>挂光影截图</span>
+            <span>长时间挂机（发烫、掉电快）</span>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>苹果手机（iPhone）能玩吗</summary>
+            <p>能，但要自己给 PojavLauncher iOS 签名（AltStore 之类），证书 7 天掉一次，每次都得重签，而且 26.3 这种新版本兼容性很差。老实说：<b class="hl">别折腾</b>，用电脑，或者电脑开着远程控制。</p>
+          </details>
+          <details>
+            <summary>手机和电脑的存档是通的吗</summary>
+            <p>服务器是同一个，你在哪台上线看到的都是同一个世界。但手机上是独立客户端，本地单人存档不互通。</p>
+          </details>
+          <details>
+            <summary>手机装完还要重新走一遍灯牌流程吗</summary>
+            <p>不用。灯牌是进群+白名单的门槛，走完一次就行，之后换设备用同一个游戏 ID 进服即可。</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="panel" id="t5">
+        <div class="faq">
+          <details>
+            <summary>启动就闪退 / 报 Java 错误</summary>
+            <p>基本是 Java 版本不匹配。PCL 设置里选「自动选择 Java」，或者用群文件里那份打包好的 Java，手动指过去。</p>
+          </details>
+          <details>
+            <summary>卡在「正在连接服务器」</summary>
+            <p>先看群公告，服务器是不是在维护或重启。没维护的话，检查地址有没有多打空格、是不是把 <code>:</code> 打成了中文冒号。</p>
+          </details>
+          <details>
+            <summary>掉帧、内存不足</summary>
+            <p>内存调到 6144 MB，视频设置里把渲染距离降到 8–10。客户端自带 Sodium，在它里面调比原版快很多。</p>
+          </details>
+          <details>
+            <summary>进不去，提示不在白名单 / 没权限</summary>
+            <p>说明灯牌流程还没走完，或者私信时 ID 填错了。回群里找管理核对，ID 区分大小写。</p>
+          </details>
+          <details>
+            <summary>机器太多，服务器卡怎么办</summary>
+            <p>先看是不是实体堆积（鸡、村民、掉落物）。生电可以造，但别为了测试挂几百个实体，管理会找你聊。</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 客户端 ============ -->
+<section class="section section-alt" id="client">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i></i>04 / CLIENT</span>
+      <h2>整合包：<em>AC26.3 基础包</em></h2>
+      <p>参数调好了、光影和优化都在里面，下载导入就能玩。手机装 FCL 也能导入同一个包。</p>
+    </div>
+
+    <div class="pack-layout">
+      <div class="pack-card reveal">
+        <div class="pack-top">
+          <div class="pack-ico" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 4 42 14v20L24 44 6 34V14z" fill="#d9b76a"/><path d="M24 4 42 14 24 24 6 14z" fill="#f2dfb0"/><path d="M24 24v20L6 34V14z" fill="#a9812f"/><path d="M24 24v20l18-10V14z" fill="#c39a4a"/><text x="24" y="34" text-anchor="middle" font-size="15" font-weight="700" fill="#4a3410">26</text></svg>
+          </div>
+          <div>
+            <h3>AC26.3 基础整合包 <span class="ver">v1.0.0</span></h3>
+            <p class="pack-sub">Minecraft 26.3 · Fabric 0.19.5 · 自带 PCL 启动器</p>
+          </div>
+        </div>
+
+        <div class="pack-meta">
+          <div><span>文件大小</span><b>36.8 MB</b></div>
+          <div><span>更新时间</span><b>2026.11</b></div>
+          <div><span>模组数量</span><b>70+ 个</b></div>
+        </div>
+
+        <a class="btn btn-primary btn-block" data-cfg-href="packDownload" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          下载整合包
+        </a>
+        <p class="pack-hint">点一下直接下，里面已经带了 PCL 启动器，解压就用。</p>
+
+        <div class="pack-specs">
+          <div><span>系统</span><b>Win10 / 11 64 位</b></div>
+          <div><span>内存</span><b>8 GB 以上（分配 4–6 GB）</b></div>
+          <div><span>手机</span><b>安卓 FCL 可导入（见教程④）</b></div>
+          <div><span>显卡</span><b>集显可玩，独显更稳</b></div>
+        </div>
+      </div>
+
+      <div class="pack-mods reveal">
+        <h3>包里都有什么</h3>
+        <ul class="mod-list">
+          <li><b>地毯全家桶</b><span>TIS / CCA / ORG / REMS 等 12 个</span></li>
+          <li><b>投影 Litematica</b><span>投影 + 打印机 + 共享原理图</span></li>
+          <li><b>Iris 光影</b><span>自带 Bliss / photon / Solas</span></li>
+          <li><b>锂 · 星光</b><span>Lithium / ScalableLux 性能</span></li>
+          <li><b>现代化修复</b><span>ModernFix 启动提速</span></li>
+          <li><b>JEI 物品管理器</b><span>查配方</span></li>
+          <li><b>玉 Jade</b><span>看方块信息</span></li>
+          <li><b>Xaero 小地图</b><span>地图 + 玩家位置</span></li>
+          <li><b>苹果皮</b><span>饱食度 / 饥饿值详情</span></li>
+          <li><b>动态光源</b><span>拿火把就亮</span></li>
+          <li><b>万用皮肤补丁</b><span>正版皮肤直连显示</span></li>
+          <li><b>Fresh Animations</b><span>生物动作资源包</span></li>
+        </ul>
+        <p class="mod-note">一共 70+ 个模组，包内自带中文名，已测试无冲突。自己再往里塞模组崩了，管理不背锅。</p>
+
+        <div class="allow-grid">
+          <div class="allow ok">
+            <b>可以装</b>
+            <span>优化类（Sodium、Lithium）</span>
+            <span>地图类（小地图、路径点）</span>
+            <span>界面类（JEI、Jade、背包整理）</span>
+            <span>建造类（投影、坐标显示）</span>
+          </div>
+          <div class="allow no">
+            <b>一律封号</b>
+            <span>透视、X-Ray、矿物追踪</span>
+            <span>飞行、自瞄、加速</span>
+            <span>自动挂机、脚本操作</span>
+            <span>刷物品、任何复制 Bug</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 联系 ============ -->
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><i></i>06 / CONTACT</span>
+      <h2>来找我玩，<em>群里见</em></h2>
+      <p>直播、进服、报 bug、找管理，都在这几个地方。</p>
+    </div>
+
+    <div class="contact-grid">
+      <a class="contact-card ks reveal" data-cfg-href="kuaishou" href="#" target="_blank" rel="noopener">
+        <div class="cc-top">
+          <span class="cc-badge">快手</span>
+          <svg class="cc-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </div>
+        <h3>竹影c</h3>
+        <p class="cc-desc">快手号 <b class="hl" id="ksId">zhuyingc1314</b><br>服务器开在这里，进服要先来直播间卡灯牌。</p>
+        <div class="cc-stats">
+          <div><b>12w+</b><span>粉丝</span></div>
+          <div><b>26.3</b><span>服务器版本</span></div>
+          <div><b>养老</b><span>生电服</span></div>
+        </div>
+        <div class="cc-note">
+          <div><span>游戏 ID</span><b>zhuyingcc_</b></div>
+          <div><span>进服门槛</span><b>灯牌 3 级</b></div>
+          <div><span>交流群</span><b>2 个（1 群 / 2 群）</b></div>
+        </div>
+        <span class="cc-btn">打开快手主页 →</span>
+      </a>
+
+      <div class="contact-card qq reveal">
+        <div class="cc-top">
+          <span class="cc-badge">QQ 群</span>
+          <span class="cc-live"><i class="dot"></i> 进服必经</span>
+        </div>
+        <h3>竹影服务器交流群</h3>
+        <p class="cc-desc">拿到群码后加进来：地址、客户端、开黑、找管理，全在群里。</p>
+
+        <div class="qq-number">
+          <div class="qq-lines">
+            <div class="qq-line">
+              <span>1 群</span>
+              <b data-cfg="qq1">973042992</b>
+              <button class="copy-btn" data-copy="qq1" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                <span>复制</span>
+              </button>
+            </div>
+            <div class="qq-line">
+              <span>2 群</span>
+              <b data-cfg="qq2">680984791</b>
+              <button class="copy-btn" data-copy="qq2" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                <span>复制</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="qq-bottom">
+          <div class="qr">
+            <img id="qqQr" src="assets/img/qq-qrcode.png" alt="QQ 群二维码">
+            <div class="qr-fallback">二维码<br><small>待替换</small></div>
+          </div>
+          <div class="qq-actions">
+            <a class="btn btn-primary btn-block" href="#review">怎么拿到群码</a>
+            <a class="btn btn-ghost btn-block" href="#tutorial">先看教程</a>
+            <p class="mini">群码是竹影私信发的，不在页面上公开，防止外挂混进来。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team reveal">
+      <div class="team-card">
+        <span class="team-ava a1">竹</span>
+        <div><b>竹影</b><span>服主 · 直播 / 审核</span></div>
+      </div>
+      <div class="team-card">
+        <span class="team-ava a2">记</span>
+        <div><b>记忆</b><span>管理员 · 巡查 / 封禁</span></div>
+      </div>
+      <div class="team-card">
+        <span class="team-ava a3">龍</span>
+        <div><b>龍</b><span>资金赞助 · 服务器开销</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-cube sm" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M16 2 30 9.5v13L16 30 2 22.5v-13z" fill="#d9b76a"/><path d="M16 2 30 9.5 16 17 2 9.5z" fill="#f2dfb0"/><path d="M16 17v13L2 22.5v-13z" fill="#a9812f"/><path d="M16 17v13l14-7.5v-13z" fill="#c39a4a"/></svg>
+      </span>
+      <div>
+        <b>竹影c 的 Minecraft 服务器</b>
+        <p>26.3 养老生电 · 永久不删档 · 无氪金</p>
+      </div>
+    </div>
+
+    <nav class="footer-links">
+      <a href="#features">服务器特色</a>
+      <a href="#review">进服流程</a>
+      <a href="#tutorial">教程</a>
+      <a href="#client">客户端</a>
+
+      <a data-cfg-href="kuaishou" href="#" target="_blank" rel="noopener">快手</a>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 竹影c · 本站为玩家自建服务器页面，与 Mojang Studios / Microsoft 无关。</p>
+    <p>服务器地址：<code data-cfg="ip">进群获取</code></p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/fx.js"></script>
+</body>
+</html>
